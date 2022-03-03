@@ -1,5 +1,22 @@
 {
   "header": {
     "title": "Unicat Shop"
-  }
+  },
+  "items": [
+    {
+      "pic": "https://picsum.photos/200/300",
+      "title": "T-shirt",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac mauris eget ex accumsan gravida in vitae quam. Maecenas eu ex dui. Aenean fermentum ante eu dignissim euismod. Fusce blandit feugiat pharetra. Donec fermentum ante eget viverra tempus. Vestibulum pharetra sapien id nulla lacinia interdum. Sed in lacus turpis."
+    },
+    {
+      "pic": "https://picsum.photos/200/300",
+      "title": "T-shirt 2",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac mauris eget ex accumsan gravida in vitae quam. Maecenas eu ex dui. Aenean fermentum ante eu dignissim euismod. Fusce blandit feugiat pharetra. Donec fermentum ante eget viverra tempus. Vestibulum pharetra sapien id nulla lacinia interdum. Sed in lacus turpis."
+    },
+    {
+      "pic": "https://picsum.photos/200/300",
+      "title": "T-shirt 3",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac mauris eget ex accumsan gravida in vitae quam. Maecenas eu ex dui. Aenean fermentum ante eu dignissim euismod. Fusce blandit feugiat pharetra. Donec fermentum ante eget viverra tempus. Vestibulum pharetra sapien id nulla lacinia interdum. Sed in lacus turpis."
+    }
+  ]
 }

@@ -1,6 +1,7 @@
 <template>
   <div>
-    <Header/>
+    <Header />
+    <Items />
   </div>
 </template>
 
