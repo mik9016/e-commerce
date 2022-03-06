@@ -1,15 +1,16 @@
 <template>
   <div class="items">
-    <SellItemComponent
-      class="item"
-      v-for="item in items"
-      :key="item.id"
-      picUrl="https://picsum.photos/200/300"
-      :title="item.title"
-      :shortDescription="item.description"
-      :price="item.price"
-      @click.native="addToCart(item)"
-    />
+    <nuxt-link :to="`/${slugValue}`">
+      <SellItemComponent
+        class="item"
+        v-for="item in items"
+        :key="item.id"
+        picUrl="https://picsum.photos/200/300"
+        :title="item.title"
+        :shortDescription="item.description"
+        :price="item.price"
+        @click.native="setSlugValue(item.id)"
+    /></nuxt-link>
   </div>
 </template>
 <script>
@@ -21,12 +22,12 @@ export default {
   data() {
     return {
       c,
+      slugValue: "",
     };
   },
   methods: {
-    //TODO move to the particular item site view
-    addToCart(item) {
-      this.$store.commit("addToCart",item);
+    setSlugValue(id) {
+      this.slugValue = id;
     },
   },
 };
