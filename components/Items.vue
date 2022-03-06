@@ -1,6 +1,6 @@
 <template>
   <div class="items">
-    <nuxt-link :to="`/${slugValue}`">
+    <nuxt-link :to="`/${slugValue}`" class="items__link">
       <SellItemComponent
         class="item"
         v-for="item in items"
@@ -35,10 +35,17 @@ export default {
 <style lang="scss" scoped>
 @use "../assets/scss/variables.scss" as v;
 @use "../assets/scss/mixins.scss" as m;
+
 .items {
-  @include m.flexLayout(row, flex-start, center);
-  flex-wrap: wrap;
   margin-top: v.$headerHeight;
+
+  &__link {
+    @include m.flexLayout(row, flex-start, center);
+    flex-wrap: wrap;
+
+    text-decoration: none;
+    width: 100%;
+  }
   .item {
     gap: 1rem;
   }

@@ -16,6 +16,8 @@ export default {
 @use "../assets/scss/variables.scss" as v;
 @use "../assets/scss/mixins.scss" as m;
 button {
+  transition: 0.5s ease all;
+
   width: 14rem;
   height: fit-content;
   text-align: center;

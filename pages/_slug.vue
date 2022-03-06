@@ -1,5 +1,6 @@
 <template>
   <div class="details">
+    <button @click="$router.go(-1)">back</button>
     <p>{{ item.title }}</p>
     <p>{{ item.description }}</p>
     <p>{{ item.price }}</p>
@@ -32,6 +33,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .details {
+  text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: center;
