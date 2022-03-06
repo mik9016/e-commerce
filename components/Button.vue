@@ -22,12 +22,14 @@ button {
   text-align: center;
   background: transparent;
   border: 2px v.$blackest solid;
-  font-family: Montserrat sans-serif;
   cursor: pointer;
   p {
     margin: 1rem;
     color: v.$blackest;
-    font-size: 1rem;
+    font-size: 0.8rem;
+    font-family: Montserrat sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
   }
 
   &:hover {
