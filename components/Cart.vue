@@ -2,17 +2,21 @@
   <div :class="`cart ${setCartVisibility()}`">
     <img src="~/assets/images/cart.svg" alt="cart" width="20" height="20" />
     <div class="cart__number">
-      <p>{{ number }}</p>
+      <p>{{ getCartLenght }}</p>
     </div>
   </div>
 </template>
 <script>
-import Button from "./Button.vue";
 export default {
   data() {
     return {
       number: 0,
     };
+  },
+  computed: {
+    getCartLenght() {
+      return  this.$store.getters["cartLengthGetter"];
+    },
   },
   methods: {
     setCartVisibility() {

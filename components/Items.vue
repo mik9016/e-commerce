@@ -8,6 +8,7 @@
       :title="item.title"
       :shortDescription="item.description"
       :price="item.price"
+      @click.native="addToCart(item)"
     />
   </div>
 </template>
@@ -22,8 +23,11 @@ export default {
       c,
     };
   },
-  mounted() {
-    console.log(this.$props.items);
+  methods: {
+    //TODO move to the particular item site view
+    addToCart(item) {
+      this.$store.commit("addToCart",item);
+    },
   },
 };
 </script>
