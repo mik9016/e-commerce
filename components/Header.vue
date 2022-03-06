@@ -1,17 +1,22 @@
 <template>
   <div class="head">
-    <nuxt-link to="/">
-      <button>
-        <h1>{{ c.header.title }}</h1>
-      </button></nuxt-link
-    >
+    <div class="head__links">
+      <nuxt-link to="/">
+        <button>
+          <h1>{{ c.header.title }}</h1>
+        </button>
+      </nuxt-link>
+      <Cart />
+    </div>
     <hr class="head__line" />
   </div>
 </template>
 
 <script>
 import c from "../content/text.json";
+import Cart from "./Cart.vue";
 export default {
+  components: { Cart },
   data() {
     return {
       c,
@@ -29,19 +34,30 @@ export default {
   position: absolute;
   width: 100%;
   top: 0;
-  button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin: 0;
+  display: flex;
+  flex-direction: column;
+
+  &__links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin: 0;
+    }
+    h1 {
+      margin: 0.8rem;
+      font-family: Lato, sans-serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: v.$black;
+      @include m.flexLayout(row, center, flex-start);
+    }
+
   }
-  h1 {
-    margin: 1rem;
-    font-family: Lato, sans-serif;
-    font-size: 1.5rem;
-    color: v.$black;
-    @include m.flexLayout(row, center, flex-start);
-  }
+
   &__line {
     color: v.$black;
   }

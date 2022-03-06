@@ -1,12 +1,14 @@
 <template>
   <div class="items">
     <SellItemComponent
+      class="item"
       v-for="item in items"
       :key="item.id"
       picUrl="https://picsum.photos/200/300"
       :title="item.title"
       :shortDescription="item.description"
       :price="item.price"
+      @click.native="addToCart(item)"
     />
   </div>
 </template>
@@ -21,8 +23,11 @@ export default {
       c,
     };
   },
-  mounted() {
-    console.log(this.$props.items);
+  methods: {
+    //TODO move to the particular item site view
+    addToCart(item) {
+      this.$store.commit("addToCart",item);
+    },
   },
 };
 </script>
@@ -32,7 +37,9 @@ export default {
 .items {
   @include m.flexLayout(row, flex-start, center);
   flex-wrap: wrap;
-  gap: 2rem;
   margin-top: v.$headerHeight;
+  .item {
+    gap: 1rem;
+  }
 }
 </style>

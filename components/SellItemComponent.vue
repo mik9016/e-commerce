@@ -14,7 +14,7 @@ export default {
     picUrl: { type: String, required: true },
     title: { type: String, required: true },
     shortDescription: { type: String, required: true },
-    price: { type: String, required: true },
+    price: { type: Number, required: true },
   },
   data() {
     return {
@@ -36,7 +36,7 @@ export default {
   color: v.$black;
   text-align: left;
   font-size: 0.9rem;
-  margin: 0 1.5rem;
+  margin: 1rem 1.5rem;
   font-family: Montserrat, serif;
 
   img {
