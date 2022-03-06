@@ -1,7 +1,5 @@
 <template>
   <div>
-    <Header />
-    <Items />
+    <Landing />
   </div>
 </template>
-
