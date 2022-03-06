@@ -1,6 +1,9 @@
 {
   "header": {
-    "title": "Unicat Shop"
+    "title": "Uni Shop"
+  },
+  "landing": {
+    "btnText": "Start Shopping"
   },
   "items": [
     {
