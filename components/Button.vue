@@ -15,7 +15,6 @@ export default {
 <style lang="scss" scoped>
 @use "../assets/scss/variables.scss" as v;
 @use "../assets/scss/mixins.scss" as m;
-
 button {
   width: 14rem;
   height: fit-content;
@@ -27,7 +26,7 @@ button {
     margin: 1rem;
     color: v.$blackest;
     font-size: 0.8rem;
-    font-family: Montserrat sans-serif;
+    font-family: Lato, sans-serif;
     font-weight: 300;
     text-transform: uppercase;
   }
