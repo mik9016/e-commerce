@@ -1,15 +1,16 @@
 <template>
   <div class="items">
-    <SellItemComponent
-      class="item"
-      v-for="item in items"
-      :key="item.id"
-      picUrl="https://picsum.photos/200/300"
-      :title="item.title"
-      :shortDescription="item.description"
-      :price="item.price"
-      @click.native="addToCart(item)"
-    />
+    <nuxt-link :to="`/item/${slugValue}`" class="items__link">
+      <SellItemComponent
+        class="item"
+        v-for="item in items"
+        :key="item.id"
+        picUrl="https://picsum.photos/200/300"
+        :title="item.title"
+        :shortDescription="item.description"
+        :price="item.price"
+        @click.native="setSlugValue(item.id)"
+    /></nuxt-link>
   </div>
 </template>
 <script>
@@ -21,12 +22,12 @@ export default {
   data() {
     return {
       c,
+      slugValue: "",
     };
   },
   methods: {
-    //TODO move to the particular item site view
-    addToCart(item) {
-      this.$store.commit("addToCart",item);
+    setSlugValue(id) {
+      this.slugValue = id;
     },
   },
 };
@@ -34,10 +35,17 @@ export default {
 <style lang="scss" scoped>
 @use "../assets/scss/variables.scss" as v;
 @use "../assets/scss/mixins.scss" as m;
+
 .items {
-  @include m.flexLayout(row, flex-start, center);
-  flex-wrap: wrap;
   margin-top: v.$headerHeight;
+
+  &__link {
+    @include m.flexLayout(row, flex-start, center);
+    flex-wrap: wrap;
+
+    text-decoration: none;
+    width: 100%;
+  }
   .item {
     gap: 1rem;
   }

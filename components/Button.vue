@@ -1,5 +1,5 @@
 <template>
-  <button>
+  <button :class="widthBtn">
     <p>{{ title }}</p>
   </button>
 </template>
@@ -8,6 +8,12 @@
 export default {
   props: {
     title: { type: String, required: true },
+    width: { type: String, default: "short", required: false },
+  },
+  computed: {
+    widthBtn() {
+      return this.$props.width !== "short" ? "long" : "short";
+    },
   },
 };
 </script>
@@ -15,8 +21,15 @@ export default {
 <style lang="scss" scoped>
 @use "../assets/scss/variables.scss" as v;
 @use "../assets/scss/mixins.scss" as m;
-button {
+.long {
+  width: 100%;
+}
+.short {
   width: 14rem;
+}
+button {
+  transition: 0.5s ease all;
+  // width: 14rem;
   height: fit-content;
   text-align: center;
   background: transparent;

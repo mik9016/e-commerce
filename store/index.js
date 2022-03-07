@@ -17,7 +17,6 @@ export const mutations = {
   },
   addToCart(state, value) {
     state.cart.push(value);
-
   },
 };
 // your root getters

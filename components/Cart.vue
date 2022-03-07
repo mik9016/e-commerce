@@ -49,10 +49,12 @@ export default {
     top: 12px;
     left: 18px;
     text-align: center;
-    @include m.flexLayout(row, center, center);
     p {
       color: v.$white;
-      font-size: 10px;
+      font-family: Lato,sans-serif;
+      font-size: 8px;
+      margin-top: 1px;
+      margin-left: 1px;
     }
   }
 }
