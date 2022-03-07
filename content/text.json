@@ -5,6 +5,10 @@
   "landing": {
     "btnText": "Start Shopping"
   },
+  "slug":{
+    "btnText":"Add to cart",
+    "backBtn": "back"
+  },
   "items": [
     {
       "pic": "https://picsum.photos/200/300",

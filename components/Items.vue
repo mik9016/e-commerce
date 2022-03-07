@@ -1,6 +1,6 @@
 <template>
   <div class="items">
-    <nuxt-link :to="`/${slugValue}`" class="items__link">
+    <nuxt-link :to="`/item/${slugValue}`" class="items__link">
       <SellItemComponent
         class="item"
         v-for="item in items"

@@ -37,7 +37,7 @@ export default {
   text-align: left;
   font-size: 0.9rem;
   margin: 1rem 1.5rem;
-  font-family: Montserrat, serif;
+  font-family: Montserrat, sans-serif;
 
   img {
     object-fit: cover;
@@ -46,12 +46,11 @@ export default {
   }
 
   &__title {
-    // font-family: Montserrat, serif;
+    text-transform: uppercase;
     font-weight: bold;
     height: 2rem;
   }
   &__desc {
-    // font-family: Lato, serif;
     height: fit-content;
     min-height: 4.5rem;
     max-height: 8rem;
