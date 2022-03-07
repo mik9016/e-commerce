@@ -1,5 +1,5 @@
 <template>
-  <div class="head">
+  <div :class="`head ${background}`">
     <div class="head__links">
       <nuxt-link to="/">
         <button>
@@ -22,6 +22,13 @@ export default {
       c,
     };
   },
+  computed: {
+    background() {
+      return +this.$route.params.slug > 0 || this.$nuxt.$route.path === "/shop"
+        ? "background-color"
+        : "background-transparent";
+    },
+  },
 };
 </script>
 
@@ -29,9 +36,17 @@ export default {
 @use "../assets/scss/variables.scss" as v;
 @use "../assets/scss/mixins.scss" as m;
 
-.head {
+.background-transparent {
   background-color: transparent;
   position: absolute;
+}
+
+.background-color {
+  background-color: v.$backgroundColor;
+  position: fixed;
+}
+
+.head {
   width: 100%;
   top: 0;
   display: flex;
@@ -55,7 +70,6 @@ export default {
       color: v.$black;
       @include m.flexLayout(row, center, flex-start);
     }
-
   }
 
   &__line {
