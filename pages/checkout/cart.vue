@@ -1,12 +1,28 @@
 <template>
   <div class="cart">
+    <div class="cart__back">
+      <Back />
+    </div>
     <h1>{{ c.cart.title }}</h1>
     <hr />
-    <!-- TODO make component to serve a list of components in cart -->
-    <!-- TODO add or remove quantity -->
-    <!-- TODO calculate the price  -->
-    <!-- TODO Go To Adress Form -->
-    {{this.$store.state.cart}}
+    <CartItem
+      v-for="(item, idx) in this.$store.getters.cartGetter"
+      :key="idx"
+      :title="item.title"
+      :price="item.price"
+      :current-idx="idx"
+      @itemPrice="addToPrices($event, idx)"
+    />
+    <hr />
+    <div class="cart__total">
+      <p>{{ c.cart.total }}:</p>
+      <p>{{ total }} €</p>
+    </div>
+    <div class="cart__button">
+      <nuxt-link to="/checkout/payment">
+        <Button :title="c.cart.goToPayment" />
+      </nuxt-link>
+    </div>
   </div>
 </template>
 
@@ -17,7 +33,22 @@ export default {
   data() {
     return {
       c,
+      prices: [],
+      total: 0,
     };
+  },
+
+  methods: {
+    addToPrices(val, idx) {
+      const prices = [];
+      this.$store.state.cart.forEach((el) => {
+        prices.push(el.price * el.quantity);
+      });
+      const total = prices.reduce((a, b) => {
+        return a + b;
+      });
+      this.total = total;
+    },
   },
 };
 </script>
@@ -27,12 +58,30 @@ export default {
 @use "~/assets/scss/mixins.scss" as m;
 
 .cart {
+  font-family: Lato, sans-serif;
+  &__back {
+    display: flex;
+    margin-top: v.$headerHeight;
+    margin-left: 2rem;
+  }
   h1 {
     margin-top: v.$headerHeight;
     text-align: center;
-    font-family: Lato, sans-serif;
     font-size: 4rem;
     font-weight: 300;
+  }
+  &__total {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    margin: 0 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  &__button {
+    display: flex;
+    margin: 2rem 2rem;
+    justify-content: flex-end;
   }
 }
 </style>

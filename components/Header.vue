@@ -1,7 +1,7 @@
 <template>
   <div :class="`head ${background}`">
     <div class="head__links">
-      <nuxt-link to="/">
+      <nuxt-link to="/shop">
         <button>
           <h1>{{ c.header.title }}</h1>
         </button>

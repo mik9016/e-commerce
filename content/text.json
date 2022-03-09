@@ -10,7 +10,10 @@
     "backBtn": "back"
   },
   "cart":{
-    "title":"Shopping Cart"
+    "title":"Shopping Cart",
+    "price":"price",
+    "total":"total price",
+    "goToPayment":"Go to Payment"
   },
   "items": [
     {
