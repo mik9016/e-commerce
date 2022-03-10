@@ -9,6 +9,12 @@
     "btnText":"Add to cart",
     "backBtn": "back"
   },
+  "cart":{
+    "title":"Shopping Cart",
+    "price":"price",
+    "total":"total price",
+    "goToPayment":"Go to Payment"
+  },
   "items": [
     {
       "pic": "https://picsum.photos/200/300",

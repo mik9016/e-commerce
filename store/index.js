@@ -1,6 +1,5 @@
 // holds your root state
 export const state = () => ({
-  counter: 0,
   cart: [],
 });
 
@@ -12,18 +11,42 @@ export const actions = {
 };
 // contains your mutations
 export const mutations = {
-  setCounter(state) {
-    state.counter++;
+  addProp(state, val) {
+    state.test.push({ prop: val });
+    console.log(state.test);
+  },
+  update(state) {
+    state.test[0].prop++;
+    state.test = [...state.test];
+  },
+  increaseQuantity(state, value) {
+    const idx = value.idx;
+    state.cart[idx].quantity++;
+    state.cart = [...state.cart];
+  },
+  decreaseQuantity(state, value) {
+    const idx = value.idx;
+    state.cart[idx].quantity--;
+    state.cart = [...state.cart];
   },
   addToCart(state, value) {
-    state.cart.push(value);
+    state.cart.push({
+      created_at: value.created_at,
+      description: value.description,
+      id: value.id,
+      price: value.price,
+      quantity: 1,
+      title: value.title,
+      updated_at: value.updated_at,
+    });
+    console.log(state.cart);
+  },
+  setCart(state, value) {
+    state.cart = value;
   },
 };
 // your root getters
 export const getters = {
-  myGetter(state) {
-    return state.counter + 1000;
-  },
   cartGetter(state) {
     return state.cart;
   },

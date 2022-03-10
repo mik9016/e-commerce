@@ -1,12 +1,12 @@
 <template>
   <div :class="`head ${background}`">
     <div class="head__links">
-      <nuxt-link to="/">
+      <nuxt-link to="/shop">
         <button>
           <h1>{{ c.header.title }}</h1>
         </button>
       </nuxt-link>
-      <Cart />
+     <nuxt-link to="/checkout/cart"><Cart /></nuxt-link> 
     </div>
     <hr class="head__line" />
   </div>
