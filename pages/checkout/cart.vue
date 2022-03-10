@@ -3,6 +3,7 @@
     <div class="cart__back">
       <Back />
     </div>
+    <h1 v-if="loading">LOADING...</h1>
     <h1>{{ c.cart.title }}</h1>
     <hr />
     <CartItem
@@ -19,9 +20,7 @@
       <p>{{ total }} €</p>
     </div>
     <div class="cart__button">
-      <nuxt-link to="/checkout/payment">
-        <Button :title="c.cart.goToPayment" />
-      </nuxt-link>
+      <Button :title="c.cart.goToPayment" @click.native="buy()" />
     </div>
   </div>
 </template>
@@ -35,9 +34,12 @@ export default {
       c,
       prices: [],
       total: 0,
+      loading: false,
     };
   },
-
+  mounted() {
+    this.stripe = Stripe(process.env.STRIPE_PUBLISHABLE_KEY);
+  },
   methods: {
     addToPrices(val, idx) {
       const prices = [];
@@ -48,6 +50,20 @@ export default {
         return a + b;
       });
       this.total = total;
+    },
+
+    async buy() {
+      const checkoutItems = [...this.$store.getters.cartGetter];
+      this.loading = true
+      await this.$axios
+        .post("https://e-commerce-backend.ddev.site/api/checkout", {
+          cartItems: checkoutItems,
+        })
+        .then((res) => {
+          console.log(res);
+          this.stripe.redirectToCheckout({ sessionId: res.data.id });
+          this.loading = false
+        });
     },
   },
 };
