@@ -7,7 +7,7 @@
 export default {
   async asyncData({ $axios }) {
     // const post = await $axios.$get('https://e-commerce-backend.ddev.site/api/items')
-    const items = await $axios.$get("https://laravel-yu1h.frb.io/api/items");
+    const items = await $axios.$get(process.env.PRODUCTION_BACKEND+"items");
     return { items };
   },
 };

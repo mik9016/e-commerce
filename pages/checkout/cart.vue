@@ -55,8 +55,8 @@ export default {
     async buy() {
       const checkoutItems = [...this.$store.getters.cartGetter];
       this.loading = true
-      await this.$axios
-        .post("https://e-commerce-backend.ddev.site/api/checkout", {
+      await this.$axios  
+        .post(process.env.DEV_BACKEND +"checkout", {
           cartItems: checkoutItems,
         })
         .then((res) => {
