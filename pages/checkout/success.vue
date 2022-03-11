@@ -39,4 +39,13 @@ div {
     margin-bottom: 2rem;
   }
 }
+//tablet & mobile
+@media only screen and (max-width: v.$medium) {
+  div {
+    h1 {
+      margin-top: 50%;
+      font-size: 3rem;
+    }
+  }
+}
 </style>

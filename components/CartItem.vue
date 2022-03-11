@@ -1,18 +1,12 @@
 <template>
   <div class="cartItem">
-    <img
-      :src="img"
-      alt="pic"
-      width="90"
-      height="150"
-    />
+    <img :src="img" alt="pic" width="90" height="150" />
     <p class="cartItem__title">{{ title }}</p>
-    <QuantityHandler
-    
-      :idx="currentIdx"
-      @quantity="calculatePrice($event)"
-    />
+    <QuantityHandler :idx="currentIdx" @quantity="calculatePrice($event)" />
     <p>{{ calculatedPrice }}€</p>
+    <button class="cartItem__bin" @click="removeItem()">
+      <img src="~/assets/images/bin.svg" alt="bin" width="20" height="20" />
+    </button>
   </div>
 </template>
 
@@ -43,6 +37,9 @@ export default {
         quantity: quantity,
       });
     },
+    removeItem() {
+      this.$store.commit("removeFromCart", this.$props.currentIdx);
+    },
   },
 };
 </script>
@@ -54,7 +51,7 @@ export default {
 .cartItem {
   @include m.flexLayout(row, center, space-between);
   margin: 1rem 2rem;
-  width: 60%;
+  width: 90%;
   font-family: Lato, sans-serif;
   font-size: v.$cartFontSize;
   font-weight: 100;
@@ -64,6 +61,18 @@ export default {
 
   &__title {
     text-transform: uppercase;
+  }
+  &__bin {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (max-width: v.$medium) {
+  .cartItem {
+    width: 100%;
+    margin: 0.5rem 0;
   }
 }
 </style>
