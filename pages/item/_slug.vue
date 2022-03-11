@@ -53,7 +53,7 @@ export default {
   async asyncData({ $axios, params }) {
     const slug = params.slug; // When calling /abc the slug will be "abc"
     const response = await $axios.$get(
-      `https://laravel-yu1h.frb.io/api/items/${slug}`
+      process.env.DEV_BACKEND + `items/${slug}`
     );
     const item = response.data;
     return { slug, item };
