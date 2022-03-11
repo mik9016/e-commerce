@@ -1,6 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
+    script: [{ src: "https://js.stripe.com/v3" }],
     title: "e-commerce",
     htmlAttrs: {
       lang: "en",
@@ -16,20 +17,19 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/scss/reset.scss',
-    '@/assets/scss/main.scss',
-    '@/assets/scss/fonts.scss'
-
+    "@/assets/scss/reset.scss",
+    "@/assets/scss/main.scss",
+    "@/assets/scss/fonts.scss",
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [{ src: "~/plugins/stripe-checkout.js", ssr: false }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [],
+  buildModules: [ '@nuxtjs/dotenv'],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ["@nuxtjs/axios"],
@@ -44,5 +44,6 @@ export default {
         implementation: require("sass"),
       },
     },
+    transpile: ["/plugins"],
   },
 };

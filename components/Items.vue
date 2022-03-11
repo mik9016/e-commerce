@@ -5,7 +5,7 @@
         class="item"
         v-for="item in items"
         :key="item.id"
-        picUrl="https://picsum.photos/200/300"
+        :picUrl="item.imgUrl"
         :title="item.title"
         :shortDescription="item.description"
         :price="item.price"
