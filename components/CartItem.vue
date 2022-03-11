@@ -1,7 +1,7 @@
 <template>
   <div class="cartItem">
     <img
-      src="https://picsum.photos/200/300"
+      :src="img"
       alt="pic"
       width="90"
       height="150"
@@ -20,6 +20,7 @@
 export default {
   props: {
     title: { type: String, required: true },
+    img: { type: String, required: true },
     price: { type: Number, required: true },
     currentIdx: { type: Number, required: false },
   },

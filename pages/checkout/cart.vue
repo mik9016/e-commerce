@@ -3,7 +3,14 @@
     <div class="cart__back">
       <Back />
     </div>
-    <h1 v-if="loading">LOADING...</h1>
+    <div v-if="loading" class="spinner">
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
     <h1>{{ c.cart.title }}</h1>
     <hr />
     <CartItem
@@ -12,6 +19,7 @@
       :title="item.title"
       :price="item.price"
       :current-idx="idx"
+      :img="item.imgUrl"
       @itemPrice="addToPrices($event, idx)"
     />
     <hr />
@@ -54,15 +62,15 @@ export default {
 
     async buy() {
       const checkoutItems = [...this.$store.getters.cartGetter];
-      this.loading = true
-      await this.$axios  
-        .post(process.env.DEV_BACKEND +"checkout", {
+      this.loading = true;
+      await this.$axios
+        .post(process.env.PRODUCTION_BACKEND + "checkout", {
           cartItems: checkoutItems,
         })
         .then((res) => {
           console.log(res);
           this.stripe.redirectToCheckout({ sessionId: res.data.id });
-          this.loading = false
+          this.loading = false;
         });
     },
   },
@@ -73,8 +81,18 @@ export default {
 @use "~/assets/scss/variables.scss" as v;
 @use "~/assets/scss/mixins.scss" as m;
 
+.spinner {
+  width: 100%;
+  height: 100%;
+  background: v.$backgroundColor;
+  position: fixed;
+  z-index: 999;
+  @include m.flexLayout(column,center,center);
+}
+
 .cart {
   font-family: Lato, sans-serif;
+
   &__back {
     display: flex;
     margin-top: v.$headerHeight;
@@ -98,6 +116,62 @@ export default {
     display: flex;
     margin: 2rem 2rem;
     justify-content: flex-end;
+  }
+}
+//spinner animation
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: v.$black;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
   }
 }
 </style>

@@ -1,20 +1,42 @@
 <template>
   <div>
-    <h1>SUCCESS</h1>
+    <h1>{{ c.success.text }}</h1>
+    <p>{{ c.success.text2 }}</p>
+    <nuxt-link to="/shop">
+      <Button :title="c.success.btnText" />
+    </nuxt-link>
   </div>
 </template>
 
+<script>
+import c from "~/content/text.json";
+
+export default {
+  data() {
+    return {
+      c,
+    };
+  },
+};
+</script>
 <style lang="scss" scoped>
+@use "~/assets/scss/variables.scss" as v;
+@use "~/assets/scss/mixins.scss" as m;
 div {
-  display: flex;
+  @include m.flexLayout(column, center, center);
   height: 100%;
   width: 100%;
-  justify-content: center;
-  align-items: center;
+  font-family: Lato, sans-serif;
+
   h1 {
-    margin-top: 25%;
-    font-family: Lato, sans-serif;
-    font-size: 6rem;
+    margin-top: 20%;
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+  p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
   }
 }
 </style>

@@ -4,12 +4,10 @@
     <div class="details">
       <div class="details__pics">
         <img
-          :src="pic"
+          :src="item.imgUrl"
           alt="pic"
           width="450"
           height="550"
-          v-for="(pic, idx) in pics"
-          :key="idx"
         />
       </div>
       <div class="details__right">
@@ -37,12 +35,6 @@ export default {
   data() {
     return {
       c,
-      pics: [
-        "https://picsum.photos/200/300",
-        "https://picsum.photos/200/300",
-        "https://picsum.photos/200/300",
-        "https://picsum.photos/200/300",
-      ],
     };
   },
   methods: {
@@ -53,7 +45,7 @@ export default {
   async asyncData({ $axios, params }) {
     const slug = params.slug; // When calling /abc the slug will be "abc"
     const response = await $axios.$get(
-      process.env.DEV_BACKEND + `items/${slug}`
+      process.env.PRODUCTION_BACKEND + `items/${slug}`
     );
     const item = response.data;
     return { slug, item };
@@ -78,7 +70,12 @@ export default {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     gap: 1rem;
+    img{
+      object-fit: contain;
+    }
   }
   &__right {
     width: 35%;

@@ -5,15 +5,25 @@
   "landing": {
     "btnText": "Start Shopping"
   },
-  "slug":{
-    "btnText":"Add to cart",
+  "slug": {
+    "btnText": "Add to cart",
     "backBtn": "back"
   },
-  "cart":{
-    "title":"Shopping Cart",
-    "price":"price",
-    "total":"total price",
-    "goToPayment":"Go to Payment"
+  "cart": {
+    "title": "Shopping Cart",
+    "price": "price",
+    "total": "total price",
+    "goToPayment": "Go to Payment"
+  },
+  "success": {
+    "text":"Congrats!",
+    "text2":"You've finished your purchase successfully!",
+    "btnText": "Go to Shop"
+  },
+  "cancel": {
+    "text":"Purchase cancelled!",
+    "text2":"Try one more time!",
+    "btnText": "Go to Shop"
   },
   "items": [
     {

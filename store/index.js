@@ -36,6 +36,7 @@ export const mutations = {
       id: value.id,
       price: value.price,
       quantity: 1,
+      imgUrl: value.imgUrl,
       title: value.title,
       updated_at: value.updated_at,
     });
