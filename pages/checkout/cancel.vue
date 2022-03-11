@@ -27,7 +27,7 @@ div {
   height: 100%;
   width: 100%;
   font-family: Lato, sans-serif;
-
+  text-align: center;
   h1 {
     margin-top: 20%;
     font-size: 5rem;
@@ -37,6 +37,16 @@ div {
   p {
     font-size: 1rem;
     margin-bottom: 2rem;
+  }
+}
+//tablet & mobile
+
+@media only screen and (max-width: v.$medium) {
+  div {
+    h1 {
+      margin-top: 50%;
+      font-size: 3rem;
+    }
   }
 }
 </style>

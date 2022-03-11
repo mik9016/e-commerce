@@ -37,6 +37,7 @@ button {
   background: transparent;
   border: 2px v.$blackest solid;
   cursor: pointer;
+  margin-bottom: 1rem;
 
   p {
     margin: 1rem;

@@ -3,12 +3,7 @@
     <Back class="back__details" />
     <div class="details">
       <div class="details__pics">
-        <img
-          :src="item.imgUrl"
-          alt="pic"
-          width="450"
-          height="550"
-        />
+        <img :src="item.imgUrl" alt="pic" width="450" height="550" />
       </div>
       <div class="details__right">
         <div class="details__right__text">
@@ -69,20 +64,16 @@ export default {
     height: fit-content;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    @include m.flexLayout(row, center, center);
     gap: 1rem;
-    img{
+    img {
       object-fit: contain;
     }
   }
   &__right {
     width: 35%;
-    margin-top: calc(v.$headerHeight/3);
+    margin-top: 4.5rem;
     margin-right: 2rem;
-    position: fixed;
-    right: 0;
     font-family: Lato, sans-serif;
 
     &__text {
@@ -98,6 +89,23 @@ export default {
       font-size: 1.2rem;
       text-align: left;
       width: 80%;
+    }
+  }
+}
+//tablets and mobile
+@media only screen and (max-width: v.$medium) {
+  .details {
+    flex-direction: column;
+    margin: 0 8px;
+    &__pics {
+      width: 100%;
+      img{
+        width: 100%;
+      }
+    }
+    &__right {
+      width: 100%;
+      
     }
   }
 }

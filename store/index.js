@@ -11,14 +11,6 @@ export const actions = {
 };
 // contains your mutations
 export const mutations = {
-  addProp(state, val) {
-    state.test.push({ prop: val });
-    console.log(state.test);
-  },
-  update(state) {
-    state.test[0].prop++;
-    state.test = [...state.test];
-  },
   increaseQuantity(state, value) {
     const idx = value.idx;
     state.cart[idx].quantity++;
@@ -41,6 +33,9 @@ export const mutations = {
       updated_at: value.updated_at,
     });
     console.log(state.cart);
+  },
+  removeFromCart(state,idx){
+    state.cart.splice(idx,1)
   },
   setCart(state, value) {
     state.cart = value;

@@ -118,6 +118,7 @@ export default {
     justify-content: flex-end;
   }
 }
+
 //spinner animation
 .lds-ellipsis {
   display: inline-block;
@@ -173,5 +174,13 @@ export default {
   100% {
     transform: translate(24px, 0);
   }
+}
+@media only screen and (max-width: v.$medium) {
+  
+.cart {
+  &__button {
+    justify-content: center ;
+  }
+}
 }
 </style>
