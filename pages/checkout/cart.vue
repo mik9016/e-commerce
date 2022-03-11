@@ -46,6 +46,8 @@ export default {
     };
   },
   mounted() {
+    this.loading = false;
+
     this.stripe = Stripe(process.env.STRIPE_PUBLISHABLE_KEY);
   },
   methods: {
@@ -70,8 +72,8 @@ export default {
         .then((res) => {
           console.log(res);
           this.stripe.redirectToCheckout({ sessionId: res.data.id });
-          this.loading = false;
-        });
+        })
+       
     },
   },
 };
@@ -87,7 +89,7 @@ export default {
   background: v.$backgroundColor;
   position: fixed;
   z-index: 999;
-  @include m.flexLayout(column,center,center);
+  @include m.flexLayout(column, center, center);
 }
 
 .cart {
@@ -176,11 +178,10 @@ export default {
   }
 }
 @media only screen and (max-width: v.$medium) {
-  
-.cart {
-  &__button {
-    justify-content: center ;
+  .cart {
+    &__button {
+      justify-content: center;
+    }
   }
-}
 }
 </style>

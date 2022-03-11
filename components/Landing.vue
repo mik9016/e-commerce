@@ -61,4 +61,15 @@ export default {
     }
   }
 }
+
+@media only screen and (max-width: v.$medium) {
+  .landing {
+    &__bigImg {
+      display: none;
+    }
+    &__right {
+      width: 100%;
+    }
+  }
+}
 </style>
