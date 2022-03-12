@@ -13,7 +13,11 @@
     </div>
     <h1>{{ c.cart.title }}</h1>
     <hr />
+    <h1 v-if="$store.getters.cartGetter.length < 1" class="cart__empty">
+      {{ c.cart.empty }}
+    </h1>
     <CartItem
+      v-else
       v-for="(item, idx) in this.$store.getters.cartGetter"
       :key="idx"
       :title="item.title"
@@ -72,8 +76,7 @@ export default {
         .then((res) => {
           console.log(res);
           this.stripe.redirectToCheckout({ sessionId: res.data.id });
-        })
-       
+        });
     },
   },
 };
@@ -118,6 +121,9 @@ export default {
     display: flex;
     margin: 2rem 2rem;
     justify-content: flex-end;
+  }
+  &__empty {
+    margin-bottom: v.$headerHeight;
   }
 }
 

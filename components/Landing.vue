@@ -1,7 +1,7 @@
 <template>
   <div class="landing">
     <img
-      src="../assets/images/model_hat.jpg"
+      src="https://source.unsplash.com/gb4E016nXow"
       alt="model-hat-pic"
       height="100"
       width="50"
@@ -9,7 +9,7 @@
     />
     <div class="landing__right">
       <img
-        src="../assets/images/model_hat.jpg"
+        src="https://source.unsplash.com/gb4E016nXow"
         alt="model-hat-pic"
         height="300"
         width="150"
