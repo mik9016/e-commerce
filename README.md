@@ -21,7 +21,7 @@ Functionalities:
 - JS
 - STRIPE
 
-2. Backend:
+2. Backend (Repo: https://github.com/mik9016/e-commerce-backend):
 - Laravel
 - PHP
 - MariaDB
