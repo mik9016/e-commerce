@@ -29,7 +29,7 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [ '@nuxtjs/dotenv'],
+  buildModules: ["@nuxtjs/dotenv"],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ["@nuxtjs/axios"],
@@ -46,5 +46,6 @@ export default {
     },
     transpile: ["/plugins"],
   },
-  target: 'static'
+  target: "static",
+  sser: false,
 };
