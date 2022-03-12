@@ -46,4 +46,5 @@ export default {
     },
     transpile: ["/plugins"],
   },
+  target: 'static'
 };
