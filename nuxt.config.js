@@ -47,5 +47,5 @@ export default {
     transpile: ["/plugins"],
   },
   target: "static",
-  sser: false,
+  ssr: false,
 };
