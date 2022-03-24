@@ -36,7 +36,7 @@ Functionalities:
     - It is test mode so no one will be charged!
 
 ## Site Hosting:
-- site is live under: https://shop.mgruszecki.com/
+- site is live under: https://e-commerce-nuxtjs.herokuapp.com/e-commerce/
 
 ## More Funcionalities
 
